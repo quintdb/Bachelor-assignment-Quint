@@ -1,0 +1,31 @@
+<launch>
+    <arg name="marker_pub" default="marker_pub_v2" />
+    <arg name="path_pub" default="1" />
+
+    <include file="$(find ros_igtl_bridge)/launch/bridge.launch"/>
+
+    <node pkg="rosserial_python" type="serial_node.py" name="FootSwitch" output="screen">
+      <param name="port" value="/dev/ttyACM1" />
+      <param name="baud" value="9600" />
+      <param name="name" value="FootSwitch" />
+    </node>
+
+
+    <include file="$(find endoscope_middleware)/launch/awinda_xsens.launch"/>
+
+    <node pkg="rosserial_python" type="serial_node.py" name="Pneumatic_Motor" output="screen">
+      <param name="port" value="/dev/ttyACM0" />
+      <param name="baud" value="57600" />
+      <param name="name" value="Pneumatic_Motor" />
+    </node>
+
+    <include file="$(find pid)/launch/pneumatic_control.launch"/>
+    
+    <include file="$(find subscriber_igtl_bridge)/launch/subscriber_IGTL_Bridge.launch"/>
+
+    <!--include file="$(find marker_pkg)/launch/($ arg marker_pub).launch"/-->
+
+
+
+
+</launch>

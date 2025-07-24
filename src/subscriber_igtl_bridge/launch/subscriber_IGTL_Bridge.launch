@@ -1,0 +1,4 @@
+<launch>
+    <rosparam command="load" file="$(find subscriber_igtl_bridge)/param/listenerIGTL.yaml" />
+    <node name="subscriber_igtl_bridge" pkg="subscriber_igtl_bridge" type="listener_IGTL_Bridge.py" output="screen" required="false" />
+</launch>

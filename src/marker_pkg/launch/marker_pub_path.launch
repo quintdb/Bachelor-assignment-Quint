@@ -1,0 +1,12 @@
+<launch>
+    <rosparam command="load" file="$(find marker_pkg)/param/marker_param_v2.yaml" />
+    <node name="marker_pkg" pkg="marker_pkg" type="marker_publisher_obj_path.py" 			output="screen" required="false" >
+    </node>
+    
+    <node type="rviz" name="rviz_marker" pkg="rviz" args="-d $(find marker_pkg)/rviz/config_file.rviz" />
+
+
+
+
+</launch>
+

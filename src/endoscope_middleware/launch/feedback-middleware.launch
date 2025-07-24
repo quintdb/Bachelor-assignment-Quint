@@ -1,0 +1,48 @@
+<launch>
+
+    <!--arg name="type_fb" default="vibration" /-->
+    <arg name="type_fb" default="vibration" />
+
+    <arg name="feed_back" default="1" />
+
+
+<!-- Kind of FEEDBACKS:
+      	1: Vibration with 2 motor
+      	2: Vibration with 1 motor ( frequency )
+     	  3: FORCE FeedBack with OMEGA
+	      4: POSITION FeedBack with OMEGA
+	      5: POSITION FeedBack with OMEGA (version 2)  -->
+
+
+
+    <group if="$(eval type_fb == 'vibration')">
+
+      <node name="Subscriber_Error_Vibration" pkg="subscriber_err_vibration" type="listener.py"
+        if="$(eval feed_back == 2)"/>
+
+
+      <node pkg="rosserial_python" type="serial_node.py" name="Vibration_FeedBack" output="screen">
+        <param name="port" value="/dev/ttyACM2" />
+        <param name="baud" value="57600" />
+        <param name="name" value="Vibration_FeedBack" />
+      </node>
+
+    </group>
+
+
+
+    <group if="$(eval type_fb == 'omega')">
+        <node name="omega_feedback" pkg="omega_x" type="omega_bending_force"
+          if="$(eval feed_back == 3)"/>
+
+        <node name="omega_feedback" pkg="omega_x" type="omega_bending_pos"
+          if="$(eval feed_back == 4)"/>
+
+        <node name="omega_feedback" pkg="omega_x" type="omega_bending_wall"
+          if="$(eval feed_back == 5)"/>
+
+    </group>
+
+
+
+</launch>

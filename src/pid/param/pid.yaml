@@ -1,0 +1,23 @@
+Kp: 0.0262
+Ki: 0.0048
+Kd: 0
+
+upper_limit: 5
+lower_limit: -5
+windup_limit: 5
+
+cutoff_frequency: -1.0
+
+topic_from_controller: control_effort/control_effort
+topic_from_controller_side: control_effort/side
+
+topic_from_plant: state
+
+setpoint_topic: setpoint
+pid_enable_topic: pid_enable
+max_loop_frequency: 1.0
+min_loop_frequency: 1000.0
+pid_debug_topic: pid_debug
+
+angle_error: false
+angle_wrap: 2.0*3.14159

@@ -1,0 +1,4 @@
+<launch>
+    <rosparam command="load" file="$(find subscriber_awinda)/param/listenerAwinda.yaml" />
+    <node name="subscriber_awinda" pkg="subscriber_awinda" type="listener_AWINDA.py"	output="screen" required="false" />
+</launch>

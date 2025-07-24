@@ -1,0 +1,11 @@
+
+<launch>
+  <!--node name="record_rosbag" pkg="rosbag" type="record" respawn="true" output="screen" args="record -O /home/jonny/ros/rosbag-files/path.bag /setpoint /error_angle /plan /min_path_pose /end_effector/pose_0 /end_effector/current_pose"/-->
+  <node name="record_rosbag" pkg="rosbag" type="record" respawn="true" output="screen" args="record -o /home/quintdb/rosbag/participant7_no_haptic.bag /min_path_pose /path_pose /end_effector/pose_0 /end_effector/current_pose /error_angle /setpoint /tip_angle /goal_angle /control_effort/control_effort /state" />
+  <!--node name="record_rosbag" pkg="rosbag" type="record" respawn="true" output="screen" args="record -O /home/jonny/ros/rosbag-files/path.bag  /path_pose "/-->
+
+  <!--<node name="record_rosbag" pkg="rosbag" type="record" respawn="true" output="screen" args="record -o /home/quintdb/rosbag/test_error_for_v1.bag /tip_angle /error_angle /goal_angle" />-->
+
+
+</launch>
+

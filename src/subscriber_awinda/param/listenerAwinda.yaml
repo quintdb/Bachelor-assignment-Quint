@@ -1,0 +1,17 @@
+
+
+# IMU reference initial orientation in quaternion
+imu_ref_w: 0.5
+imu_ref_x: 0.5
+imu_ref_y: 0.5
+imu_ref_z: 0.5
+
+
+imu_rate: 40
+imu_ori_topic_name: '/sensor_sensor_1'   # name of the IMU topic to subscribe to
+
+use_footswitch: true
+footswitch_topic_name: '/footswitch/control_is_enabled'
+
+
+imu_publisher_name: '/setpoint'

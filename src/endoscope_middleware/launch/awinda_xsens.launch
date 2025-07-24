@@ -1,0 +1,7 @@
+<launch>
+<!-- start the bridge -->
+   <node pkg="awindamonitor" type="awindamonitor" name="awinda_monitor_node" output="screen"/>
+
+   <include file="$(find subscriber_awinda)/launch/subscriber_AWINDA.launch" />
+   <!--node name="listener_AWINDA" pkg="subscriber_AWINDA" type="listener_AWINDA.py" output="screen" required="false"/-->
+</launch>

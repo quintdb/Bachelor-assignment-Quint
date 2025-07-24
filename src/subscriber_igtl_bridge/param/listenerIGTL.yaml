@@ -1,0 +1,12 @@
+
+
+# IGTL reference initial orientation in quaternion
+igtl_ref_w_s: 0.707
+igtl_ref_x_s: 0.707
+igtl_ref_y_s: 0.0
+igtl_ref_z_s: 0.0
+
+
+igtl_rate: 40
+igtl_ori_topic_name: 'IGTL_TRANSFORM_IN'   # name of the IGTL topic to subscribe to
+igtl_publisher_name: 'state'

@@ -1,0 +1,42 @@
+<launch>
+    <arg name="marker_pub" default="marker_pub_v2" />
+    <arg name="path" default="path" />
+
+<!-- Kind of PATH:
+      	1: circ on the right
+      	2: circ on the left
+     	  3: double circ / "S"
+	      4: third order
+	      path: final test	-->
+
+
+
+
+
+    <group if="$(eval path == 'path')">
+      <include file="$(find path_smoothing_ros)/launch/demo.launch"/>
+      <include file="$(find marker_pkg)/launch/marker_pub_v2.launch"/>
+
+    </group>
+    <group if="$(eval path != 'path')">
+        <node name="path_trial" pkg="path" type="plan1_circ_v2.py"/>
+        <include file="$(find path_smoothing_ros)/launch/demo.launch"/>
+          if="$(eval path == 1)"/>
+
+          <node name="path_trial" pkg="path" type="plan2_circ_left_v2.py"
+            if="$(eval path == 2)"/>
+
+            <node name="path_trial" pkg="path" type="plan3_circ_v2.py"
+              if="$(eval path == 3)"/>
+
+              <node name="path_trial" pkg="path" type="plan3_v2.py"
+                if="$(eval path == 4)"/>
+
+
+
+                <!--include file="$(find marker_pkg)/launch/marker_pub_v2.launch"/>-->
+    </group>
+
+
+
+</launch>

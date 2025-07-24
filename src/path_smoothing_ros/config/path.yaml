@@ -1,0 +1,27 @@
+points_per_unit: 300
+skip_points: 0
+use_end_conditions: True
+use_middle_conditions: False
+
+path_poses:
+
+#- { x:  0.0, y:  -1.0, yaw: deg(0) }
+#- { x:  0.1, y:  -0.2, yaw: deg(0) }
+#
+#- { x:  1.6, y:  0.0, yaw: deg(0) }
+#- { x:  2.6, y:  4.0, yaw: deg(0) }
+#- { x:  -0.1, y:  4.27, yaw: deg(0) }
+#
+#- { x:  -2.4, y:  4.75, yaw: deg(0) }
+#- { x:  -2.9, y:  2.0, yaw: deg(0) }
+
+
+- { x:  0.0, y:  -1.0, yaw: deg(0) }
+- { x:  0.1, y:  -0.2, yaw: deg(0) }
+- { x:  1.6, y:  0.0, yaw: deg(0) }
+- { x:  2.5, y:  3.5, yaw: deg(0) }
+- { x:  2.6, y:  4.0, yaw: deg(0) }
+
+- { x:  -0.1, y:  4.27, yaw: deg(0) }
+- { x:  -2.4, y:  4.75, yaw: deg(0) }
+- { x:  -2.9, y:  2.0, yaw: deg(0) }

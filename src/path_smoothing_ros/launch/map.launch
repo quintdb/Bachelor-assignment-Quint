@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- Launch the map server -->
+  <node pkg="map_server" type="map_server" name="map_server"
+        args="$(find path_smoothing_ros)/maps/maze.yaml"/>
+  
+  <arg name="global_frame" default="/map"/>
+  <arg name="robot_base_frame" default="world"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_map"
+        args="-5.0 -3.0 0.0 0.0 0.0 0.0 $(arg robot_base_frame) $(arg global_frame) 40" />
+</launch>

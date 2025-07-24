@@ -1,0 +1,29 @@
+<launch>
+
+  <arg name="rviz" default="true" />
+
+  <group if="$(arg rviz)">
+    <include file="$(find path_smoothing_ros)/launch/rviz.launch" />
+  </group>
+
+  <node
+    name="path_smoothing_run"
+    pkg="path_smoothing_ros"
+    type="demo"
+    output="screen">
+
+    <rosparam file="$(find path_smoothing_ros)/config/path.yaml" command="load" />
+
+  </node>
+
+  <!-- Launch the map server -->
+  <node pkg="map_server" type="map_server" name="map_server"
+        args="$(find path_smoothing_ros)/maps/maze.yaml"/>
+
+  <arg name="global_frame" default="/map"/>
+  <arg name="robot_base_frame" default="world"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_map"
+        args="0.0 0.0 0.0 0.0 0.0 0.0 $(arg robot_base_frame) $(arg global_frame) 40" />
+
+
+</launch>
